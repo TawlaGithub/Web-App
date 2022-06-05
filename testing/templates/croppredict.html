@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+<style>
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('https://northbengaltourism.com/images/bhutan/farm_house_traditional_village_house_1024.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+  .wrapper{
+    margin: 0 auto;
+    width: 60%;
+    height: 80%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 40px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  }
+  #heading{
+    font-family: 'Lobster', cursive;
+    color:#2E4053 ;
+  }
+  .fills{
+    width: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+  }
+  label{
+    width: 50%;
+    text-align: right;
+    display: flex;
+    justify-content: right;
+    margin-right: 4px;
+  }
+  input{
+    border: 2px solid #2E4053;
+    padding: 3px;
+    border-radius: 4px;
+    width: 70%;
+  }
+  .view{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    margin: 0.7rem;
+  }
+  button {
+    border: 1px solid #3498DB;
+    color: white;
+    padding: 12px 32px;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    background-color: #3498DB ;
+    border-radius: 10px;
+    font-weight: bold;
+  }
+  button:hover{
+    border: 1px solid #2E4053;
+  }
+  input:hover{
+    border: 2px solid #3498DB;
+  }
+
+</style>
+</head>
+
+<body>
+
+<div style="text-align:center;" class="wrapper">
+
+	<h1 id="heading">Find out the most suitable crop to grow in your farm</h1>
+
+  <form action="{{ url_for('predict')}}"method="post" class="fills">
+      <div class="view">
+        <label style="text-align:center;" for="Temperature"><b>Temperature:</b></label><br>
+        <input type="text" name="Temperature" placeholder="Enter in degree celsius" required="required" />
+      </div>
+      <div class="view">
+        <label style="text-align:center;" for="Humidity"><b>Humidity:</b></label>
+        <input type="text" name="Humidity" placeholder="Enter in %" required="required" />
+      </div>
+      <div class="view">
+        <label style="text-align:center;" for="pH"><b>PH:</b></label>
+        <input type="text" name="PH" placeholder="Enter the value" required="required" />
+      </div>
+      <div class="view">
+        <label style="text-align:center;" for="rain_fall"><b>Rain Fall:</b></label>
+        <input type="text" name="rain_fall" placeholder="Enter in mm" required="required" />
+      </div>
+      <div class="view">
+        <label style="text-align:center;" for="k"><b>Potassium (K) in the Soil:</b></label>
+        <input type="text" name="k" placeholder="Enter the value" required="required" />
+      </div>
+      <div class="view">
+        <label style="text-align:center;" for="n"><b>Nitrogen (N) in the Soil:</b></label>
+        <input type="text" name="n" placeholder="Enter the value" required="required" />
+      </div>
+      <div class="view">
+        <label style="text-align:center;" for="p"><b>Phosphorous (P) in the Soil:</b></label>
+        <input type="text" name="p" placeholder="Enter the value" required="required" />
+      </div>
+   </form>
+   <button type="submit" class="button">Predict</button>
+ </div>
+</body>
+</html>
